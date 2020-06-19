@@ -24,6 +24,8 @@ public class Aviones {
         this.wifi = wifi;
     }
 
+
+
     public int getCapacidadDeCombustible() {
         return capacidadDeCombustible;
     }
@@ -63,8 +65,6 @@ public class Aviones {
     public void setTipoDePropulsor(String tipoDePropulsor) {
         this.tipoDePropulsor = tipoDePropulsor;
     }
-
-
 
     public boolean isCatering() {
         return catering;
