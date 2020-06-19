@@ -64,6 +64,10 @@ public class Aviones {
         this.tipoDePropulsor = tipoDePropulsor;
     }
 
+    public void awenokace ()
+    {
+
+    }
     @Override
     public String toString() {
         return "Aviones{" +
