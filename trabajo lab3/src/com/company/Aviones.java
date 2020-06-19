@@ -7,21 +7,21 @@ public class Aviones {
     private int velocidadMaxima;
     private String tipoDePropulsor;
     private int tarifaTipoAvion;
+    private boolean catering;
+    private boolean wifi;
+
     public Aviones() {
-        capacidadDeCombustible = 0;
-        costoPorKM = 0;
-        capacidadMaxDePasajeros = 0;
-        velocidadMaxima = 0;
-        tipoDePropulsor = "";
-        tarifaTipoAvion=0;
     }
-    public Aviones(int capacidadDeCombustible, int costoPorKM, int capacidadMaxDePasajeros, int velocidadMaxima, String tipoDePropulsor,int tarifaTipoAvion) {
+
+    public Aviones(int capacidadDeCombustible, int costoPorKM, int capacidadMaxDePasajeros, int velocidadMaxima, String tipoDePropulsor, int tarifaTipoAvion, boolean catering, boolean wifi) {
         this.capacidadDeCombustible = capacidadDeCombustible;
         this.costoPorKM = costoPorKM;
         this.capacidadMaxDePasajeros = capacidadMaxDePasajeros;
         this.velocidadMaxima = velocidadMaxima;
         this.tipoDePropulsor = tipoDePropulsor;
-        this.tarifaTipoAvion=tarifaTipoAvion;
+        this.tarifaTipoAvion = tarifaTipoAvion;
+        this.catering = catering;
+        this.wifi = wifi;
     }
 
     public int getCapacidadDeCombustible() {
@@ -64,18 +64,31 @@ public class Aviones {
         this.tipoDePropulsor = tipoDePropulsor;
     }
 
-    public void awenokace ()
-    {
 
+
+    public boolean isCatering() {
+        return catering;
     }
+
+    public void setCatering(boolean catering) {
+        this.catering = catering;
+    }
+
+    public boolean isWifi() {
+        return wifi;
+    }
+
+    public void setWifi(boolean wifi) {
+        this.wifi = wifi;
+    }
+
     @Override
     public String toString() {
-        return "Aviones{" +
-                "capacidadDeCombustible=" + capacidadDeCombustible +
-                ", costoPorKM=" + costoPorKM +
+        return "Aviones{" + "capacidadDeCombustible=" + capacidadDeCombustible + ", costoPorKM=" + costoPorKM +
                 ", capacidadMaxDePasajeros=" + capacidadMaxDePasajeros +
                 ", velocidadMaxima=" + velocidadMaxima +
                 ", tipoDePropulsor='" + tipoDePropulsor + '\'' +
                 '}';
     }
+
 }

@@ -56,12 +56,7 @@ public class Ususario {
 
     @Override
     public String toString() {
-        return "Ususario{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", dni=" + dni +
-                ", apellido='" + apellido + '\'' +
-                '}';
+        return "Ususario de " +  "nombre= '" + nombre + ", edad= " + edad + ", dni= " + dni + ", apellido= '" + apellido  + '}';
     }
 
 }
