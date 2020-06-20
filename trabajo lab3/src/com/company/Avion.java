@@ -1,20 +1,20 @@
 package com.company;
 
-public class Avion {
+public class Avion extends Empresa{
     private int capacidadDeCombustible;
     private int costoPorKM;           //aca pondria rand entre 150 y 300 o pondria un "precio" mediante un calculo .-Tommy
     private int capacidadMaxDePasajeros;
     private int velocidadMaxima;
     private String tipoDePropulsor;  //cambiaria esto por un int y con un metodo determine cual es dependiendo de si es 1 2 o 3.-Tommy
-    private int tarifaTipoAvion;
+    /*private int tarifaTipoAvion;
 
     private String origen;           //las variables de aca para abajo estan como place holder mas que nada por el uml.-Tommy
     private String destino;          //estan en sus respectivos construcctores -Tommy
 
     private String fecha;            //fecha creo que va aca porque despues pid mostrar aviones disponibles por fecha, asi es mas facil
 
-    private Ususario ususario;
-
+    private Usuario usuario;
+*/
 
     public Avion() {
     }
@@ -25,10 +25,10 @@ public class Avion {
         this.capacidadMaxDePasajeros = capacidadMaxDePasajeros;
         this.velocidadMaxima = velocidadMaxima;
         this.tipoDePropulsor = tipoDePropulsor;
-        this.tarifaTipoAvion = tarifaTipoAvion;
+      /*  this.tarifaTipoAvion = tarifaTipoAvion;
         this.origen = origen;
         this.destino = destino;
-        this.fecha = fecha;
+        this.fecha = fecha;*/
     }
 
     public int getCapacidadDeCombustible() {
@@ -71,7 +71,7 @@ public class Avion {
         this.tipoDePropulsor = tipoDePropulsor;
     }
 
-    public int getTarifaTipoAvion() {
+ /*   public int getTarifaTipoAvion() {
         return tarifaTipoAvion;
     }
 
@@ -79,12 +79,12 @@ public class Avion {
         this.tarifaTipoAvion = tarifaTipoAvion;
     }
 
-    public Ususario getUsusario() {
-        return ususario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsusario(Ususario ususario) {
-        this.ususario = ususario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getOrigen() {
@@ -109,17 +109,11 @@ public class Avion {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
+    }*/
 
 
     @Override
     public String toString() {
-        return "Avion{" + "capacidadDeCombustible=" + capacidadDeCombustible + ", costoPorKM=" + costoPorKM +
-                ", capacidadMaxDePasajeros=" + capacidadMaxDePasajeros +
-                ", velocidadMaxima=" + velocidadMaxima +
-                ", tipoDePropulsor='" + tipoDePropulsor + '\'' +
-                '}';
+        return "Capacidad combustible: " + capacidadDeCombustible + " | Costo por km: " + costoPorKM + " | Max pasajeros: " + capacidadMaxDePasajeros + " | Velocidad max: " + velocidadMaxima + " | Tipo de propulsor: " + tipoDePropulsor;
     }
-
-
 }

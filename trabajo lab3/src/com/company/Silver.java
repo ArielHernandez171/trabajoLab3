@@ -19,4 +19,10 @@ public class Silver extends Avion{
     public void setCatering(boolean catering) {
         this.catering = catering;
     }
+
+    @Override
+    public String toString()
+    {
+        return super.toString() + "Catering: " +catering+ " | SILVER \n";
+    }
 }

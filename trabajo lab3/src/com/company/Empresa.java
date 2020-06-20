@@ -1,20 +1,33 @@
 package com.company;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Empresa {
-    HashSet<Avion> aviones = new HashSet<>();
-    HashSet<Ususario> usuarios = new HashSet<>();
+    ArrayList<Avion> aviones;
+    ArrayList<Usuario> usuarios;
 
     public Empresa() {
+        aviones = new ArrayList<>();
+        usuarios = new ArrayList<>();
     }
 
-    public void setAviones (Avion avion){
-        aviones.add(avion);
+    public String listarAviones() // Metodo que lista TODOS los aviones .-Lautaro
+    {
+        StringBuilder a = new StringBuilder();
+        for(Avion avion : aviones)
+        {
+            a.append(avion.toString());
+        }
+        return a.toString();
     }
 
-    public void setUsuarios(Ususario usuario){
-        usuarios.add(usuario);
+    public String listarUsuarios() // Metodo que lista TODOS los usuarios .-Lautaro
+    {
+        StringBuilder a = new StringBuilder();
+        for(Usuario usuario : usuarios)
+        {
+            a.append(usuario.toString());
+        }
+        return a.toString();
     }
-
 }

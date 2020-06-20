@@ -29,4 +29,10 @@ public class Gold extends Avion {
     public void setWifi(boolean wifi) {
         this.wifi = wifi;
     }
+
+    @Override
+    public String toString()
+        {
+            return super.toString() + " | Catering: " +catering+ " | Wifi: " +wifi+ " | GOLD \n";
+        }
 }
