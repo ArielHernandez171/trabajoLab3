@@ -1,26 +1,36 @@
 package com.company;
 
+import java.util.HashSet;
+
 public class Ususario {
+
+    private int tarifaxPersona;
     private String nombre;
     private int edad;
     private int dni;
     private String apellido;
-    private int tarifa;
+    HashSet<Avion> aviones = new HashSet<>();
+
 
     public Ususario() {
-        nombre = "";
-        edad = 0;
-        dni = 0;
-        apellido = "";
-        tarifa=3500;
     }
-    public Ususario(String nombre, int edad, int dni, String apellido) {
+
+    public Ususario(int tarifaxPersona, String nombre, int edad, int dni, String apellido) {
+        this.tarifaxPersona = 3500;
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;
         this.apellido = apellido;
-        tarifa=3500;
     }
+
+    public int getTarifaxPersona() {
+        return tarifaxPersona;
+    }
+
+    public void setTarifaxPersona(int tarifaxPersona) {
+        this.tarifaxPersona = tarifaxPersona;
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -54,9 +64,9 @@ public class Ususario {
         this.apellido = apellido;
     }
 
-    @Override
-    public String toString() {
-        return "Ususario de " +  "nombre= '" + nombre + ", edad= " + edad + ", dni= " + dni + ", apellido= '" + apellido  + '}';
+    public void setAviones(Avion avion){               //basicamente mete un avion en la "lista" de aviones activados que tiene el user
+            aviones.add(avion);
     }
+
 
 }
