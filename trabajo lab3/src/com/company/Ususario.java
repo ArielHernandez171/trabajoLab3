@@ -64,7 +64,7 @@ public class Ususario {
         this.apellido = apellido;
     }
 
-    public void setAviones(Avion avion){               //basicamente mete un avion en la "lista" de aviones activados que tiene el user
+    public void setAviones(Avion avion){               //basicamente mete un avion en la "lista" de aviones activados que tiene el user.-Tommy
             aviones.add(avion);
     }
 
