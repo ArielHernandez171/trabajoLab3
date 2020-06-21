@@ -11,11 +11,14 @@ public class Usuario extends Empresa{
     private String apellido;
     ArrayList<Avion> historialVuelos;
 
-
-    public Usuario() {
+    public Usuario(){
+        tarifaxPersona=0;
+        nombre="";
+        edad=0;
+        apellido="";
+        dni=0;
     }
-
-    public Usuario(int tarifaxPersona, String nombre, int edad, int dni, String apellido) {
+    public Usuario(String nombre, int edad, int dni, String apellido) {
         this.tarifaxPersona = 3500;
         this.nombre = nombre;
         this.edad = edad;
