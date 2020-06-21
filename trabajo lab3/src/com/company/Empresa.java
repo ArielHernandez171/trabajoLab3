@@ -23,7 +23,7 @@ public class Empresa {
 
 
     public String mostrarTipoavion (Usuario u){  // esto en teoria revisaria la LISTA DE VUELOS DEL USUARIO
-        int a = 0;                               // y se fijaria de que tipo es, dependiendo de eso, devuelve el mas alto. -Tommy
+        int a = 0;                               // y se fijaria de que tipo es el mas alto y lo devuelve . -Tommy
         String aux = new String();
 
 
@@ -53,10 +53,17 @@ public class Empresa {
     public String listarUsuarios() // Metodo que lista TODOS los usuarios .-Lautaro
     {
         StringBuilder a = new StringBuilder();
+        String b =new String();
+
+
         for(Usuario usuario : usuarios)
         {
             a.append(usuario.toString());
+
+            b=mostrarTipoavion(usuario);
+            System.out.println("La mejor clase de avion que ha utilizado es :" + b);
         }
+
         return a.toString();
     }
 }
