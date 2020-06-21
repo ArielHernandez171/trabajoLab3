@@ -65,6 +65,14 @@ public class Usuario extends Empresa{
         this.apellido = apellido;
     }
 
-
+    public String verHistorial() // Muestra el historial del cliente, los aviones que tomo
+    {
+        StringBuilder a = new StringBuilder();
+        for(Avion avion : historialVuelos)
+        {
+            a.append(avion.toString());
+        }
+        return a.toString();
+    }
 
 }
