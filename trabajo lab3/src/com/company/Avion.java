@@ -6,6 +6,7 @@ public class Avion extends Empresa{
     private int capacidadMaxDePasajeros;
     private int velocidadMaxima;
     private String tipoDePropulsor;  //cambiaria esto por un int y con un metodo determine cual es dependiendo de si es 1 2 o 3.-Tommy
+    private int idAvion; // Esto va a servir para poder identificar el avion cuando se esta haciendo el cuestionario y otras cosas
     /*private int tarifaTipoAvion;
 
     private String origen;           //las variables de aca para abajo estan como place holder mas que nada por el uml.-Tommy
