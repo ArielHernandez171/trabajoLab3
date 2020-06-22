@@ -39,16 +39,27 @@ public class Main {
         }
         return user;
     }
-    public static void buscarUsuario(ArrayList<Usuario>u){
+    public static Usuario buscarUsuario(ArrayList<Usuario>u){
         Scanner scan=new Scanner(System.in);
         int i;
+        Usuario user=new Usuario();
         System.out.println("\nIndique el dni: ");
         i=scan.nextInt();
-        busquedaDeUsuarios(i,u);
+        user=busquedaDeUsuarios(i,u);
+        return user;
+    }
+    public static void comprarVuelo(Usuario user,ArrayList<Avion> a){
+        int posVuelo=0;
+        //Elegir el vuelo
+        //user.historialVuelos.add(a.clone());
+    }
+    public static void cancelarVuelo(String fecha,Usuario user){
+        int index=0;
+        //Funcion buscar vuelo
+        user.historialVuelos.remove(index);
     }
 
     public static void main(String[] args) {
-
         // Ni idea si los datos estan bien en los atributos, meti random, despues los checkeamos
         Empresa aeroTaxi = new Empresa();
         Gold avionGold = new Gold (1000, 100,50,1000, "Motor a reaccion",300, "BsAs", "Cordoba", "23/06/2020", true, true);
@@ -59,6 +70,7 @@ public class Main {
         aeroTaxi.aviones.add(avionSilver);
         aeroTaxi.aviones.add(avionBronze);
         System.out.println(aeroTaxi.listarAviones());
+
 
     }
 }
