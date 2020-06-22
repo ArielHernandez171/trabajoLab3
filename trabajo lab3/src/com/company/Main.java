@@ -14,8 +14,5 @@ public class Main {
         aeroTaxi.aviones.add(avionSilver);
         aeroTaxi.aviones.add(avionBronze);
         System.out.println(aeroTaxi.listarAviones());
-
-
-
     }
 }
