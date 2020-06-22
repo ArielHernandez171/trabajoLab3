@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Avion extends Empresa{
     private int capacidadDeCombustible;
     private int costoPorKM;           //aca pondria rand entre 150 y 300 o pondria un "precio" mediante un calculo .-Tommy
@@ -30,6 +32,53 @@ public class Avion extends Empresa{
         this.origen = origen;
         this.destino = destino;
         this.fecha = fecha;*/
+    }
+
+    public Avion getAvionPorid (int id, ArrayList<Avion> aviones){       //busca el avion por id -Tommy
+        Avion a =new Avion();
+        Avion aux = new Avion();                  //tira warning diciendo que es redundante pero si saco el new avion tira error xd -Tommy
+
+        for (int i=0;i < aviones.size(); i++){
+            aux = aviones.get(i);  // estoy seguro de que esto esta mal
+            if (id == aux.getIdAvion() ){
+                a=aux;
+            }
+        }
+
+        return a;
+    }
+
+    public String mostrarTipoavion (Usuario u, Empresa e){          //muestra el tipo de avion mas alto -Tommy
+        int j=0;
+        int id= 0;
+        Avion a = new Avion();
+        String aux = new String();
+        Cuestionario c = new Cuestionario();
+
+        for(int i=0;i<u.historialVuelos.size();i++)
+        {
+            c= u.historialVuelos.get(i);              //algo me dice que estas 3 lineas estan mal -Tommy
+            id= c.getIdAvion();
+            a=getAvionPorid(id, e.aviones);
+
+            if (a instanceof Bronze && j<=1){
+                j=1;
+            }else if (a instanceof Silver && j<=2){
+                j=2;
+            }else if (a instanceof Gold && j<=3){
+                j=3;
+            }
+        }
+
+        if (j == 1){
+            aux= "Bronze";
+        }else if (j == 2){
+            aux= "Silver";
+        }else if (j == 3){
+            aux= "Gold";
+        }
+
+        return aux;
     }
 
     public int getCapacidadDeCombustible() {
@@ -112,9 +161,18 @@ public class Avion extends Empresa{
         this.fecha = fecha;
     }*/
 
+    public int getIdAvion() {
+        return idAvion;
+    }
+
+    public void setIdAvion(int idAvion) {
+        this.idAvion = idAvion;
+    }
 
     @Override
     public String toString() {
         return "Capacidad combustible: " + capacidadDeCombustible + " | Costo por km: " + costoPorKM + " | Max pasajeros: " + capacidadMaxDePasajeros + " | Velocidad max: " + velocidadMaxima + " | Tipo de propulsor: " + tipoDePropulsor;
     }
+
+
 }

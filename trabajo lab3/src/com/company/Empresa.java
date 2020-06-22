@@ -22,34 +22,6 @@ public class Empresa {
     }
 
 
-    public String mostrarTipoavion (Usuario u){  // esto en teoria revisaria la LISTA DE VUELOS DEL USUARIO
-        int a = 0;                               // y se fijaria de que tipo es el mas alto y lo devuelve . -Tommy
-        String aux = new String();
-
-
-        for(int i=0;i<u.historialVuelos.size();i++)
-        {
-            if (u.historialVuelos.get(i) instanceof Bronze && a<=1){
-                a=1;
-            }else if (u.historialVuelos.get(i) instanceof Silver && a<=2){
-                a=2;
-            }else if (u.historialVuelos.get(i) instanceof Gold && a<=3){
-                a=3;
-            }
-        }
-
-        if (a == 1){
-            aux= "Bronze";
-        }else if (a == 2){
-            aux= "Silver";
-        }else if (a == 3){
-            aux= "Gold";
-        }
-
-        return aux;
-    }
-
-
     public String listarUsuarios() // Metodo que lista TODOS los usuarios .-Lautaro
     {
         StringBuilder a = new StringBuilder();
@@ -60,10 +32,12 @@ public class Empresa {
         {
             a.append(usuario.toString());
 
-            b=mostrarTipoavion(usuario);
+           // b=mostrarTipoavion(usuario);
             System.out.println("La mejor clase de avion que ha utilizado es :" + b);
         }
 
         return a.toString();
     }
+
+
 }
