@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Usuario extends Empresa{
+public class Usuario extends Empresa {
 
     private int tarifaxPersona;
     private String nombre;
