@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Usuario extends Empresa{
 
@@ -70,10 +71,14 @@ public class Usuario extends Empresa{
 
     public String verHistorial() // Era de tipo Avion pero la cambie por una de tipo "Reserva" ya que ahi van los datos .-Lautaro
     {
+        int i=0;
         StringBuilder a = new StringBuilder();
         for(Cuestionario cuestionario : historialVuelos)
         {
-            a.append(cuestionario.toString());
+            if (historialVuelos.get(i).getVueloCancelado() == 0){
+                a.append(cuestionario.toString());
+            }
+            i++;
         }
         return a.toString();
     }
@@ -90,5 +95,29 @@ public class Usuario extends Empresa{
 
         return rta;
     }
+
+    public void CancelarVuelo (Empresa e){
+        Scanner scan = new Scanner(System.in);
+        int id=0, id2=0;
+        Avion a = new Avion();
+
+        System.out.println("ingrese la Id del vuelo que desea cancelar: ");
+        id=scan.nextInt();
+
+        for (int i=0; i < historialVuelos.size(); i++){
+           if(historialVuelos.get(i).getIdContrato() == id){
+              id2 =historialVuelos.get(i).getIdAvion();
+              a=a.getAvionPorid(id2,e.aviones);
+              a.setCancelado(1);
+              historialVuelos.get(i).setVueloCancelado(1);
+           }
+
+        }
+
+
+
+    }
+
+
 
 }

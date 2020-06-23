@@ -10,6 +10,7 @@ public class Cuestionario {
     private int idAvion;
     private int idContrato; // ID del contrato, o sea de la compra del vuelo
     private float costoVuelo;
+    private int vueloCancelado;
     Avion avion;
     Usuario usuario;
 
@@ -25,6 +26,7 @@ public class Cuestionario {
         this.idAvion = idAvion;
         this.idContrato = idContrato;
         this.costoVuelo = costoVuelo;
+        this.vueloCancelado = 0;
     }
 
     public int calculoDestino (){             //dependiendo de los strings va a ser un valor u otro, es llamada por calculo costo -Tommy
@@ -147,11 +149,19 @@ public class Cuestionario {
         this.costoVuelo = costoVuelo;
     }
 
+    public int getVueloCancelado() {
+        return vueloCancelado;
+    }
 
+    public void setVueloCancelado(int vueloCancelado) {
+        this.vueloCancelado = vueloCancelado;
+    }
 
     @Override
     public String toString()
     {
         return "Origen: " +origen+ " | Destino: " +destino+ " | Cantidad de acompañantes: " +cantAcomp+ " | ID Avion: " +idAvion+ " | ID Contrato: " +idContrato +"\n";
     }
+
+
 }
