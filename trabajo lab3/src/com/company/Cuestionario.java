@@ -7,9 +7,11 @@ public class Cuestionario {
     private String origen;
     private String destino;
     private int cantAcomp;
+    private Avion avion;
     private int idAvion;
     private int idContrato; // ID del contrato, o sea de la compra del vuelo
     private float costoVuelo;
+    Usuario usuario;
 
     public Cuestionario() {
     }
@@ -23,6 +25,47 @@ public class Cuestionario {
         this.idContrato = idContrato;
         this.costoVuelo = costoVuelo;
     }
+
+    public int calculoDestino (){             //dependiendo de los strings va a ser un valor u otro, es llamada por calculo costo -Tommy
+        int rta= 0;
+        int i;
+        int j;
+        String bs = new String("BsAs");
+        String cor= new String("Cordiba");
+        String san = new String("Santiago");
+        String monte = new String("Montevideo");
+
+        if ( (i=origen.compareTo(bs)) == 0 && (j=destino.compareTo(cor)) == 0 ){
+            rta = 695;
+        }else if ( (i=origen.compareTo(bs)) == 0 && (j=destino.compareTo(san)) == 0 ){
+            rta = 1400;
+        }else if ( (i=origen.compareTo(bs)) == 0 && (j=destino.compareTo(monte)) == 0 ){
+            rta = 950;
+        }else if ( (i=origen.compareTo(cor)) == 0 && (j=destino.compareTo(monte)) == 0 ){
+            rta = 1190;
+        }else if ( (i=origen.compareTo(cor)) == 0 && (j=destino.compareTo(san)) == 0 ){
+            rta = 1050;
+        }else if ( (i=origen.compareTo(monte)) == 0 && (j=destino.compareTo(san)) == 0 ){
+            rta = 2100;
+        }
+
+        return rta;
+    }
+
+
+    public int calculoCosto (Avion a, int acomp){                       // calcula el costo final del vuelo -Tommy
+        int destino=calculoDestino();
+
+
+        int i= ((destino* a.getCostoPorKM()) + (acomp * 3500) + a.getTarifaTipoAvion());
+
+
+        return i;
+    }
+
+
+
+
 
     public String getFecha() {
         return fecha;
@@ -90,6 +133,11 @@ public class Cuestionario {
         origen = scan.nextLine();
         System.out.println("Ingrese el destino: ");
         destino = scan.nextLine();
+        System.out.println("Ingrese cantidad de acompañantes: ");
+        cantAcomp = scan.nextInt();
+
+                                                    // aca voy a poner una llamada a un metodo que cree un avion con datos rand -Tommy
+        costoVuelo=calculoCosto(avion, cantAcomp);
 
         // aca ahora deberia buscar los aviones disponibles para la fecha y SUPONGO que tambien que coincida con el destino y origen
 

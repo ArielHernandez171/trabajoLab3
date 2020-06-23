@@ -78,4 +78,17 @@ public class Usuario extends Empresa{
         return a.toString();
     }
 
+    public int calculototal (){ //en teoria recorre la list sumando todos los costos -Tommy
+        int rta=0;
+        Cuestionario aux;
+
+        for (int i=0; i < historialVuelos.size(); i++){
+            aux=historialVuelos.get(i);
+            rta += aux.getCostoVuelo();
+
+        }
+
+        return rta;
+    }
+
 }
