@@ -16,7 +16,9 @@ public class Empresa {
         StringBuilder a = new StringBuilder();
         for(Avion avion : aviones)
         {
-            a.append(avion.toString());
+            if (avion.getCancelado() == 0) {
+                a.append(avion.toString());
+            }
         }
         return a.toString();
     }

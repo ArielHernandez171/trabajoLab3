@@ -8,8 +8,8 @@ public class Gold extends Avion {
     public Gold() {
     }
 
-    public Gold(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima, int tarifaTipoAvion, boolean catering, boolean wifi) {
-        super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, tarifaTipoAvion);
+    public Gold(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima, boolean catering, boolean wifi) {
+        super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, 6000);
         this.catering = catering;
         this.wifi = wifi;
     }

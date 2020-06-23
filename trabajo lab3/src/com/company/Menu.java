@@ -6,6 +6,7 @@ public class Menu {
     }
     public void mostrarOpcionesMenuPrincipal(){
         System.out.println("1:Login");
+
         System.out.println("\n2:Nuevo usuario");
         System.out.println("\n3:Salir del sistema");
 

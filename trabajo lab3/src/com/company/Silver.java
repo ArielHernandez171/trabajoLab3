@@ -7,8 +7,8 @@ public class Silver extends Avion{
     public Silver() {
     }
 
-    public Silver(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima, int tarifaTipoAvion, boolean catering) {
-        super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, tarifaTipoAvion);
+    public Silver(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima,  boolean catering) {
+        super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, 4000);
         this.catering = catering;
     }
 

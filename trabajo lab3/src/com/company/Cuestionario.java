@@ -7,11 +7,12 @@ public class Cuestionario {
     private String origen;
     private String destino;
     private int cantAcomp;
-    private Avion avion;
     private int idAvion;
     private int idContrato; // ID del contrato, o sea de la compra del vuelo
     private float costoVuelo;
+    Avion avion;
     Usuario usuario;
+
 
     public Cuestionario() {
     }
@@ -52,7 +53,6 @@ public class Cuestionario {
         return rta;
     }
 
-
     public int calculoCosto (Avion a, int acomp){                       // calcula el costo final del vuelo -Tommy
         int destino=calculoDestino();
 
@@ -63,9 +63,33 @@ public class Cuestionario {
         return i;
     }
 
+    public void contratarAvion() // Este es el metodo para contratar un avion, un vuelo, btw mañana pregunto si se pueden meter Prints en los metodos
+    {
+        // El metodo lo hice void momentaneamente pero tiene que ser de tipo Cuestionario
+        Empresa e = new Empresa();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Ingrese la fecha deseada para el vuelo: ");
+        fecha = scan.nextLine(); // Esto no se si esta bien, tipo el "fecha" quizas tiene que ser "setFecha" o algo así, Lo mismo para las demas cosas
+        System.out.println("Ingrese el origen: ");
+        origen = scan.nextLine();
+        System.out.println("Ingrese el destino: ");
+        destino = scan.nextLine();
+        while (origen.equals(destino) == true){        // si destino y origen son iguales te pide que ingrese otro -Tommy
+            System.out.println("\nIngrese otro destino por favor :");
+            destino = scan.nextLine();
+        }
 
 
+        System.out.println("Ingrese cantidad de acompañantes: ");
+        cantAcomp = scan.nextInt();
 
+
+        costoVuelo=calculoCosto(avion, cantAcomp);
+
+        // aca ahora deberia buscar los aviones disponibles para la fecha y SUPONGO que tambien que coincida con el destino y origen
+
+        // Despues aca vendria llamar al metodo para calcular el costo, mañana lo hago gg, seria algo como "costoVuelo = calcularCosto" y se llama al metodo
+    }
 
     public String getFecha() {
         return fecha;
@@ -123,26 +147,7 @@ public class Cuestionario {
         this.costoVuelo = costoVuelo;
     }
 
-    public void contratarAvion() // Este es el metodo para contratar un avion, un vuelo, btw mañana pregunto si se pueden meter Prints en los metodos
-    {
-        // El metodo lo hice void momentaneamente pero tiene que ser de tipo Cuestionario
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Ingrese la fecha deseada para el vuelo: ");
-        fecha = scan.nextLine(); // Esto no se si esta bien, tipo el "fecha" quizas tiene que ser "setFecha" o algo así, Lo mismo para las demas cosas
-        System.out.println("Ingrese el origen: ");
-        origen = scan.nextLine();
-        System.out.println("Ingrese el destino: ");
-        destino = scan.nextLine();
-        System.out.println("Ingrese cantidad de acompañantes: ");
-        cantAcomp = scan.nextInt();
 
-                                                    // aca voy a poner una llamada a un metodo que cree un avion con datos rand -Tommy
-        costoVuelo=calculoCosto(avion, cantAcomp);
-
-        // aca ahora deberia buscar los aviones disponibles para la fecha y SUPONGO que tambien que coincida con el destino y origen
-
-        // Despues aca vendria llamar al metodo para calcular el costo, mañana lo hago gg, seria algo como "costoVuelo = calcularCosto" y se llama al metodo
-    }
 
     @Override
     public String toString()

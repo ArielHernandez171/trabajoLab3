@@ -5,12 +5,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Avion extends Empresa{
     private int capacidadDeCombustible;
-    private int costoPorKM;           //aca pondria rand entre 150 y 300 o pondria un "precio" mediante un calculo .-Tommy
+    private int costoPorKM;
     private int capacidadMaxDePasajeros;
     private int velocidadMaxima;
-    private int tipoDePropulsor;  //lo cambie por un int y con un metodo determine cual es dependiendo de si es 1 2 o 3 (falta el metodo).-Tommy
-    private int idAvion; // Esto va a servir para poder identificar el avion cuando se esta haciendo el cuestionario y otras cosas
+    private int tipoDePropulsor;   //lo cambie por un int y con un metodo determine cual es dependiendo de si es 1 2 o 3 (falta el metodo).-Tommy
+    private int idAvion;           // Esto va a servir para poder identificar el avion cuando se esta haciendo el cuestionario y otras cosas
     private int tarifaTipoAvion;
+    private int cancelado;         //Si es 1 el vuelo esta cancelado, valor por defecto = 0 -Tommy
 
 
      Usuario usuario;
@@ -26,9 +27,61 @@ public class Avion extends Empresa{
         this.velocidadMaxima = velocidadMaxima;
         this.tipoDePropulsor = ThreadLocalRandom.current().nextInt(1,3+1);
         this.tarifaTipoAvion = tarifaTipoAvion;
+        this.cancelado = 0;
 
     }
 
+    public Avion crearAvionRand (){                                      //en teoria esto crea un avion con valores aleatorios -Tommy
+        Gold g = new Gold();
+        Silver s = new Silver();
+        Bronze b = new Bronze();
+        int i=ThreadLocalRandom.current().nextInt(1,3+1);       //dependiendo de este rand va a ser de un tipo o de otro (gold, Silver o Bronze) -Tommy
+
+        if (i==1){
+            g.setCapacidadDeCombustible(ThreadLocalRandom.current().nextInt(700,2200+1));
+            g.setCapacidadMaxDePasajeros(ThreadLocalRandom.current().nextInt(1,20+1));
+            g.setCostoPorKM(ThreadLocalRandom.current().nextInt(150,300+1));
+            g.setTipoDePropulsor(ThreadLocalRandom.current().nextInt(1,3+1));
+            g.setVelocidadMaxima(ThreadLocalRandom.current().nextInt(400,1000+1));
+            g.setTarifaTipoAvion(6000);
+            g.setCatering(Math.random() <0.5);
+            g.setWifi(Math.random() <0.5);
+            g.setIdAvion(crearId());
+            g.setCancelado(0);
+            return g;
+        }else if (i==2){
+            s.setCapacidadDeCombustible(ThreadLocalRandom.current().nextInt(700,2200+1));
+            s.setCapacidadMaxDePasajeros(ThreadLocalRandom.current().nextInt(1,20+1));
+            s.setCostoPorKM(ThreadLocalRandom.current().nextInt(150,300+1));
+            s.setTipoDePropulsor(ThreadLocalRandom.current().nextInt(1,3+1));
+            s.setVelocidadMaxima(ThreadLocalRandom.current().nextInt(400,1000+1));
+            s.setCatering(Math.random() <0.5);
+            s.setIdAvion(crearId());
+            s.setCancelado(0);
+            return s;
+        }else {
+            b.setCapacidadDeCombustible(ThreadLocalRandom.current().nextInt(700,2200+1));
+            b.setCapacidadMaxDePasajeros(ThreadLocalRandom.current().nextInt(1,20+1));
+            b.setCostoPorKM(ThreadLocalRandom.current().nextInt(150,300+1));
+            b.setTipoDePropulsor(ThreadLocalRandom.current().nextInt(1,3+1));
+            b.setVelocidadMaxima(ThreadLocalRandom.current().nextInt(400,1000+1));
+            b.setIdAvion(crearId());
+            b.setCancelado(0);
+            return b;
+
+        }
+
+    }
+
+    public int crearId (){                  //crea una id para los aviones -Tommy
+        int i=0;
+
+        for (Avion avion : aviones){
+            i++;
+        }
+
+        return i;
+    }
 
     public Avion getAvionPorid (int id, ArrayList<Avion> aviones){       //busca el avion por id -Tommy
         Avion a =new Avion();
@@ -76,7 +129,6 @@ public class Avion extends Empresa{
 
         return aux;
     }
-
 
     public int getCapacidadDeCombustible() {
         return capacidadDeCombustible;
@@ -139,5 +191,11 @@ public class Avion extends Empresa{
     }
 
 
+    public int getCancelado() {
+        return cancelado;
+    }
 
+    public void setCancelado(int cancelado) {
+        this.cancelado = cancelado;
+    }
 }
