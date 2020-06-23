@@ -9,7 +9,7 @@ public class Usuario extends Empresa{
     private int edad;
     private int dni;
     private String apellido;
-    ArrayList<Avion> historialVuelos;
+    ArrayList<Cuestionario> historialVuelos;
 
     public Usuario(){
         tarifaxPersona=0;
@@ -68,6 +68,14 @@ public class Usuario extends Empresa{
         this.apellido = apellido;
     }
 
-
+    public String verHistorial() // Era de tipo Avion pero la cambie por una de tipo "Reserva" ya que ahi van los datos .-Lautaro
+    {
+        StringBuilder a = new StringBuilder();
+        for(Cuestionario cuestionario : historialVuelos)
+        {
+            a.append(cuestionario.toString());
+        }
+        return a.toString();
+    }
 
 }

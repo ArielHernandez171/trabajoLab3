@@ -21,13 +21,23 @@ public class Empresa {
         return a.toString();
     }
 
+
     public String listarUsuarios() // Metodo que lista TODOS los usuarios .-Lautaro
     {
         StringBuilder a = new StringBuilder();
+        String b =new String();
+
+
         for(Usuario usuario : usuarios)
         {
             a.append(usuario.toString());
+
+           // b=mostrarTipoavion(usuario);
+            System.out.println("La mejor clase de avion que ha utilizado es :" + b);
         }
+
         return a.toString();
     }
+
+
 }
