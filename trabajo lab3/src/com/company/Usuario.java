@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Usuario extends Empresa{
+public class Usuario extends Empresa {
 
     private int tarifaxPersona;
     private String nombre;

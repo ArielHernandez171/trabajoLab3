@@ -1,6 +1,5 @@
 package com.company;
-
-public class Silver extends Avion{
+public class Silver extends Avion {
 
     private boolean catering;
 

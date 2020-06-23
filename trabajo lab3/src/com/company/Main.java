@@ -1,7 +1,61 @@
 package com.company;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
-
+    public static void pasarArchivoAArrayUsuarios(File f,Usuario A){
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            A= mapper.readValue(f,Usuario.class);
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void pasarArryUsuarioAFile(File f, ArrayList<Usuario> user){//Esto iria dentro de una funcion
+        ObjectMapper mapper=new ObjectMapper();
+        try {
+            mapper.writeValue(f,user);
+        } catch (JsonGenerationException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void pasarArchivoAArrayAviones(File f,Avion A){
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            A= mapper.readValue(f,Avion.class);
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void pasarArryAvionesAFile(File f,Avion a){//Esto iria dentro de una funcion
+        ObjectMapper mapper=new ObjectMapper();
+        try {
+            mapper.writeValue(f,a);
+        } catch (JsonGenerationException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
 
         // Ni idea si los datos estan bien en los atributos, meti random, despues los checkeamos

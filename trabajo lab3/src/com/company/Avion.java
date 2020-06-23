@@ -2,22 +2,15 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Avion extends Empresa{
+public class Avion extends Empresa {
     private int capacidadDeCombustible;
     private int costoPorKM;           //aca pondria rand entre 150 y 300 o pondria un "precio" mediante un calculo .-Tommy
     private int capacidadMaxDePasajeros;
     private int velocidadMaxima;
     private String tipoDePropulsor;  //cambiaria esto por un int y con un metodo determine cual es dependiendo de si es 1 2 o 3.-Tommy
     private int idAvion; // Esto va a servir para poder identificar el avion cuando se esta haciendo el cuestionario y otras cosas
-    /*private int tarifaTipoAvion;
-
-    private String origen;           //las variables de aca para abajo estan como place holder mas que nada por el uml.-Tommy
-    private String destino;          //estan en sus respectivos construcctores -Tommy
-
-    private String fecha;            //fecha creo que va aca porque despues pid mostrar aviones disponibles por fecha, asi es mas facil
-
+    private int tarifaTipoAvion;
     private Usuario usuario;
-*/
 
     public Avion() {
     }
@@ -28,10 +21,7 @@ public class Avion extends Empresa{
         this.capacidadMaxDePasajeros = capacidadMaxDePasajeros;
         this.velocidadMaxima = velocidadMaxima;
         this.tipoDePropulsor = tipoDePropulsor;
-      /*  this.tarifaTipoAvion = tarifaTipoAvion;
-        this.origen = origen;
-        this.destino = destino;
-        this.fecha = fecha;*/
+        this.tarifaTipoAvion = tarifaTipoAvion;
     }
 
     public Avion getAvionPorid (int id, ArrayList<Avion> aviones){       //busca el avion por id -Tommy
