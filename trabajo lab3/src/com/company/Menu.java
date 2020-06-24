@@ -31,8 +31,6 @@ public class Menu extends Main{
                     break;
             }
         }
-
-
     }
 
     public void login (Empresa e, Usuario u){
