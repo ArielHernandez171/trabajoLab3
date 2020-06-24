@@ -1,15 +1,14 @@
 package com.company;
-
-public class Silver extends Avion{
+public class Silver extends Avion {
 
     private boolean catering;
 
     public Silver() {
     }
 
-    public Silver(int capacidadDeCombustible, int costoPorKM, int capacidadMaxDePasajeros, int velocidadMaxima, String tipoDePropulsor, int tarifaTipoAvion, String origen, String destino, String fecha, boolean catering) {
-        super(capacidadDeCombustible, costoPorKM, capacidadMaxDePasajeros, velocidadMaxima, tipoDePropulsor, 4000, origen, destino, fecha);
-        this.catering = catering;
+    public Silver(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima) {
+        super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, 4000);
+        this.catering = Math.random() < 0.5;
     }
 
     public boolean isCatering() {

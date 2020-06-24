@@ -16,18 +16,30 @@ public class Empresa {
         StringBuilder a = new StringBuilder();
         for(Avion avion : aviones)
         {
-            a.append(avion.toString());
+            if (avion.getCancelado() == 0) {
+                a.append(avion.toString());
+            }
         }
         return a.toString();
     }
 
+
     public String listarUsuarios() // Metodo que lista TODOS los usuarios .-Lautaro
     {
         StringBuilder a = new StringBuilder();
+        String b =new String();
+
+
         for(Usuario usuario : usuarios)
         {
             a.append(usuario.toString());
+
+           // b=mostrarTipoavion(usuario);
+            System.out.println("La mejor clase de avion que ha utilizado es :" + b);
         }
+
         return a.toString();
     }
+
+
 }
