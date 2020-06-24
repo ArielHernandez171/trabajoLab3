@@ -6,9 +6,9 @@ public class Silver extends Avion {
     public Silver() {
     }
 
-    public Silver(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima,  boolean catering) {
+    public Silver(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima) {
         super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, 4000);
-        this.catering = catering;
+        this.catering = Math.random() < 0.5;
     }
 
     public boolean isCatering() {

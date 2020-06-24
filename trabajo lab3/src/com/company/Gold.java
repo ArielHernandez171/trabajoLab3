@@ -8,10 +8,10 @@ public class Gold extends Avion {
     public Gold() {
     }
 
-    public Gold(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima, boolean catering, boolean wifi) {
+    public Gold(int capacidadDeCombustible, int capacidadMaxDePasajeros, int velocidadMaxima) {
         super(capacidadDeCombustible, capacidadMaxDePasajeros, velocidadMaxima, 6000);
-        this.catering = catering;
-        this.wifi = wifi;
+        this.catering = Math.random() < 0.5 ;
+        this.wifi = Math.random() < 0.5;
     }
 
     public boolean isCatering() {

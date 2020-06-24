@@ -1,5 +1,6 @@
 package com.company;
 //import java.io.Serializable;
+import java.awt.*;
 import java.util.Scanner;
 
 public class Cuestionario {
@@ -65,32 +66,48 @@ public class Cuestionario {
         return i;
     }
 
-    public void contratarAvion() // Este es el metodo para contratar un avion, un vuelo, btw mañana pregunto si se pueden meter Prints en los metodos
+    public Cuestionario contratarAvion(Empresa e) // Este es el metodo para contratar un avion, un vuelo, btw mañana pregunto si se pueden meter Prints en los metodos
     {
-        // El metodo lo hice void momentaneamente pero tiene que ser de tipo Cuestionario
-        Empresa e = new Empresa();
+        Avion a = new Avion();
+        Cuestionario c = new Cuestionario();
         Scanner scan = new Scanner(System.in);
+        int control =0;
+        int id=0;
+
         System.out.println("Ingrese la fecha deseada para el vuelo: ");
-        fecha = scan.nextLine(); // Esto no se si esta bien, tipo el "fecha" quizas tiene que ser "setFecha" o algo así, Lo mismo para las demas cosas
+        c.setFecha(scan.nextLine()); // Esto no se si esta bien, tipo el "fecha" quizas tiene que ser "setFecha" o algo así, Lo mismo para las demas cosas
         System.out.println("Ingrese el origen: ");
-        origen = scan.nextLine();
+        c.setOrigen(scan.nextLine());
         System.out.println("Ingrese el destino: ");
-        destino = scan.nextLine();
-        while (origen.equals(destino) == true){        // si destino y origen son iguales te pide que ingrese otro -Tommy
+        c.setDestino(scan.nextLine());
+
+        while (c.getOrigen().equals(c.getDestino()) == true){        // si destino y origen son iguales te pide que ingrese otro -Tommy
             System.out.println("\nIngrese otro destino por favor :");
-            destino = scan.nextLine();
+            c.setDestino(scan.nextLine());
+        }
+
+        while (control != 1){
+            System.out.println("\na continuacion se le mostrar los aviones disponibles");                           //Falta implementar el buscar por fecha y comprobar
+            e.listarAviones();
+            System.out.println("\nIngrese la id del avion que desea usar: ");
+            id = scan.nextInt();
+            a=a.getAvionPorid(id,e.aviones);
+
+            System.out.println("\nIngrese cantidad de acompañantes: ");
+            c.setCantAcomp(scan.nextInt());
+            if (a.getCapacidadMaxDePasajeros() <= c.getCantAcomp()){
+                control=1;
+                c.setIdAvion(a.getIdAvion());
+            }else {
+                System.out.println("\nLa cantidad de pasajeros es mayor a la capacidad del avio, elija otro :");
+            }
+
         }
 
 
-        System.out.println("Ingrese cantidad de acompañantes: ");
-        cantAcomp = scan.nextInt();
+        c.setCostoVuelo(calculoCosto(avion, c.getCantAcomp()));
 
-
-        costoVuelo=calculoCosto(avion, cantAcomp);
-
-        // aca ahora deberia buscar los aviones disponibles para la fecha y SUPONGO que tambien que coincida con el destino y origen
-
-        // Despues aca vendria llamar al metodo para calcular el costo, mañana lo hago gg, seria algo como "costoVuelo = calcularCosto" y se llama al metodo
+        return c;
     }
 
     public String getFecha() {

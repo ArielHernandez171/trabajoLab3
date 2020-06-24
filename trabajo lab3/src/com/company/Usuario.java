@@ -28,6 +28,67 @@ public class Usuario extends Empresa {
         historialVuelos = new ArrayList<>();
     }
 
+    public String verHistorial() // Era de tipo Avion pero la cambie por una de tipo "Reserva" ya que ahi van los datos .-Lautaro
+    {
+        int i=0;
+        StringBuilder a = new StringBuilder();
+        for(Cuestionario cuestionario : historialVuelos)
+        {
+            if (historialVuelos.get(i).getVueloCancelado() == 0){
+                a.append(cuestionario.toString());
+            }
+            i++;
+        }
+        return a.toString();
+    }
+
+    public Usuario buscarUsuarios(ArrayList<Usuario> s,int dni){   //busca y retorna un usuario -Ariel y tommy
+        int i=0;
+        int d=s.size();
+        Usuario usuario= new Usuario();
+        while (i<d){
+            if(s.get(i).getDni()==dni){
+                usuario = s.get(i);
+            }
+            i++;
+        }
+
+        return usuario;
+    }
+
+    public int calculototal (){ //en teoria recorre la list sumando todos los costos -Tommy
+        int rta=0;
+        Cuestionario aux;
+
+        for (int i=0; i < historialVuelos.size(); i++){
+            aux=historialVuelos.get(i);
+            rta += aux.getCostoVuelo();
+
+        }
+
+        return rta;
+    }
+
+    public void CancelarVuelo (Empresa e){
+        Scanner scan = new Scanner(System.in);
+        int id=0, id2=0;
+        Avion a = new Avion();
+
+        System.out.println("ingrese la Id del vuelo que desea cancelar: ");
+        id=scan.nextInt();
+
+        for (int i=0; i < historialVuelos.size(); i++){
+            if(historialVuelos.get(i).getIdContrato() == id){
+                id2 =historialVuelos.get(i).getIdAvion();
+                a=a.getAvionPorid(id2,e.aviones);
+                a.setCancelado(1);
+                historialVuelos.get(i).setVueloCancelado(1);
+            }
+
+        }
+
+    }
+
     public int getTarifaxPersona() {
         return tarifaxPersona;
     }
@@ -35,7 +96,6 @@ public class Usuario extends Empresa {
     public void setTarifaxPersona(int tarifaxPersona) {
         this.tarifaxPersona = tarifaxPersona;
     }
-
 
     public String getNombre() {
         return nombre;
@@ -69,54 +129,7 @@ public class Usuario extends Empresa {
         this.apellido = apellido;
     }
 
-    public String verHistorial() // Era de tipo Avion pero la cambie por una de tipo "Reserva" ya que ahi van los datos .-Lautaro
-    {
-        int i=0;
-        StringBuilder a = new StringBuilder();
-        for(Cuestionario cuestionario : historialVuelos)
-        {
-            if (historialVuelos.get(i).getVueloCancelado() == 0){
-                a.append(cuestionario.toString());
-            }
-            i++;
-        }
-        return a.toString();
-    }
 
-    public int calculototal (){ //en teoria recorre la list sumando todos los costos -Tommy
-        int rta=0;
-        Cuestionario aux;
-
-        for (int i=0; i < historialVuelos.size(); i++){
-            aux=historialVuelos.get(i);
-            rta += aux.getCostoVuelo();
-
-        }
-
-        return rta;
-    }
-
-    public void CancelarVuelo (Empresa e){
-        Scanner scan = new Scanner(System.in);
-        int id=0, id2=0;
-        Avion a = new Avion();
-
-        System.out.println("ingrese la Id del vuelo que desea cancelar: ");
-        id=scan.nextInt();
-
-        for (int i=0; i < historialVuelos.size(); i++){
-           if(historialVuelos.get(i).getIdContrato() == id){
-              id2 =historialVuelos.get(i).getIdAvion();
-              a=a.getAvionPorid(id2,e.aviones);
-              a.setCancelado(1);
-              historialVuelos.get(i).setVueloCancelado(1);
-           }
-
-        }
-
-
-
-    }
 
 
 

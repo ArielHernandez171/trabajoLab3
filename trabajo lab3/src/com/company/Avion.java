@@ -187,7 +187,7 @@ public class Avion extends Empresa{
 
     @Override
     public String toString() {
-        return "Capacidad combustible: " + capacidadDeCombustible + " | Costo por km: " + costoPorKM + " | Max pasajeros: " + capacidadMaxDePasajeros + " | Velocidad max: " + velocidadMaxima + " | Tipo de propulsor: " + tipoDePropulsor;
+        return "Capacidad combustible: " + capacidadDeCombustible + " | Costo por km: " + costoPorKM + " | Max pasajeros: " + capacidadMaxDePasajeros + " | Velocidad max: " + velocidadMaxima + " | Tipo de propulsor: " + tipoDePropulsor + " | Id del avion :" + idAvion;
     }
 
 
